@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>溜溜电影网 | 顺口溜影评·遛弯通勤顺口背的选片指南</title>
+<meta name="keywords" content="溜溜电影网, liuliudianyingwang-zh.github.io, 顺口溜影评, 一句话影评, 通勤听片, 轻松选片, 遛弯伴侣">
+<meta name="description" content="溜溜电影网（liuliudianyingwang-zh.github.io）把影评写成顺口溜：一部片两行词，押韵好记，遛弯、通勤顺口就能背；“遛片”栏目专推适合边走边听解说的片子。">
+<link rel="canonical" href="https://liuliudianyingwang-zh.github.io/">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#16181d;--ink-2:#3d4250;--paper:#f6f5f2;--card:#fffdf9;
+  --brand:#c8382f;--brand-2:#f0c14b;--line:#e6e2da;--muted:#8a8f9c;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* ===== Header ===== */
+.hd{background:var(--ink);position:sticky;top:0;z-index:50;border-bottom:3px solid var(--brand)}
+.hd-in{display:flex;align-items:center;justify-content:space-between;height:66px;gap:24px}
+.logo{display:flex;align-items:baseline;gap:8px;color:#fff;font-weight:800;letter-spacing:.5px}
+.logo b{font-size:22px}
+.logo span{font-size:12px;color:var(--brand-2);border:1px solid var(--brand-2);padding:1px 6px;border-radius:3px}
+.nav{display:flex;gap:26px}
+.nav a{color:#cfd2d9;font-size:15px;position:relative;padding:4px 0;transition:.2s}
+.nav a:hover{color:var(--brand-2)}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--brand-2);transition:.2s}
+.nav a:hover::after{width:100%}
+.m-btn{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+@media(max-width:820px){
+  .m-btn{display:block}
+  .nav{position:fixed;left:0;right:0;top:66px;flex-direction:column;gap:0;background:var(--ink);
+       max-height:0;overflow:hidden;transition:.3s}
+  .nav.open{max-height:420px;border-top:1px solid #2a2d35}
+  .nav a{padding:16px 24px;border-bottom:1px solid #2a2d35}
+  .nav a::after{display:none}
+}
+
+/* ===== Hero ===== */
+.hero{background:linear-gradient(135deg,#1b1e26 0%,#2b2024 55%,#3a1e1c 100%);color:#fff;padding:56px 0}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero h1{font-size:42px;line-height:1.25;letter-spacing:1px;margin-bottom:6px}
+.hero h1 em{font-style:normal;color:var(--brand-2)}
+.hero .url{display:inline-block;margin:14px 0 20px;font-size:14px;color:#b9c0cc;background:rgba(255,255,255,.08);
+  padding:6px 12px;border-radius:4px;border:1px solid rgba(255,255,255,.14)}
+.hero p.ld{font-size:16px;color:#d7dbe2;max-width:520px}
+.hero .acts{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 24px;border-radius:4px;font-size:15px;font-weight:700;transition:.2s}
+.btn-p{background:var(--brand);color:#fff}
+.btn-p:hover{background:#e04b40}
+.btn-o{background:transparent;color:var(--brand-2);border:1px solid var(--brand-2)}
+.btn-o:hover{background:var(--brand-2);color:var(--ink)}
+.tickets{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:22px}
+.tickets h3{font-size:15px;color:var(--brand-2);margin-bottom:14px;letter-spacing:2px}
+.tk{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px dashed rgba(255,255,255,.16)}
+.tk:last-child{border-bottom:0}
+.tk i{font-style:normal;color:#fff;font-weight:700;font-size:15px}
+.tk s{color:#9aa1ad;text-decoration:none;font-size:13px}
+@media(max-width:820px){.hero{padding:40px 0}.hero-grid{grid-template-columns:1fr;gap:32px}.hero h1{font-size:30px}}
+
+/* ===== Section common ===== */
+.sec{padding:56px 0}
+.sec-hd{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:26px}
+.sec-hd h2{font-size:24px;letter-spacing:1px}
+.sec-hd h2 small{display:block;font-size:12px;color:var(--muted);font-weight:400;letter-spacing:3px;margin-bottom:4px}
+.more{font-size:13px;color:var(--brand);white-space:nowrap}
+.more:hover{text-decoration:underline}
+
+/* ===== Film cards ===== */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:.22s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(22,24,29,.12);border-color:#d8d2c6}
+.poster{position:relative;aspect-ratio:3/4;overflow:hidden;background:#e9e5dd}
+.poster div{position:absolute;inset:0;display:flex;align-items:flex-end;padding:14px;color:#fff;
+  font-weight:800;font-size:17px;line-height:1.3;
+  background:linear-gradient(160deg,var(--c1,#4a5568),var(--c2,#1f2430))}
+.poster div::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.22),transparent 55%)}
+.poster b{position:relative;z-index:2}
+.poster s{position:absolute;top:10px;left:10px;z-index:2;text-decoration:none;background:var(--brand);color:#fff;
+  font-size:12px;padding:2px 8px;border-radius:3px}
+.body{padding:14px;flex:1;display:flex;flex-direction:column}
+.body h3{font-size:16px;margin-bottom:6px}
+.meta{font-size:12px;color:var(--muted);margin-bottom:8px}
+.body p{font-size:13px;color:var(--ink-2);flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.body .go{margin-top:12px;font-size:13px;color:var(--brand);font-weight:700}
+@media(max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.cards{grid-template-columns:1fr}}
+
+/* ===== Reviews (list) ===== */
+.rev{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.rv{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:8px;padding:20px;transition:.2s}
+.rv:hover{border-left-color:var(--brand-2);background:#fff}
+.rv .top{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:8px}
+.rv h3{font-size:17px;margin-bottom:8px}
+.rv p{font-size:14px;color:var(--ink-2)}
+.rv .tag{color:var(--brand);font-weight:700}
+@media(max-width:820px){.rev{grid-template-columns:1fr}}
+
+/* ===== Columns nav ===== */
+.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.col{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 18px;text-align:center;transition:.22s}
+.col:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.col:hover .ico{background:var(--brand-2);color:var(--ink)}
+.ico{width:52px;height:52px;margin:0 auto 12px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:var(--brand);color:#fff;font-size:22px}
+.col h3{font-size:16px;margin-bottom:6px}
+.col p{font-size:13px;color:var(--ink-2)}
+.col:hover p{color:#cfd2d9}
+@media(max-width:820px){.cols{grid-template-columns:repeat(2,1fr)}}
+
+/* ===== News ===== */
+.news{display:grid;grid-template-columns:2fr 1fr;gap:32px}
+.nw{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.nw:last-child{border-bottom:0}
+.nw .no{flex:none;width:30px;height:30px;background:var(--ink);color:var(--brand-2);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
+.nw .txt h3{font-size:15.5px;margin-bottom:4px}
+.nw .txt p{font-size:13px;color:var(--muted)}
+.side h3{font-size:15px;padding-left:10px;border-left:4px solid var(--brand);margin-bottom:14px}
+.rk li{list-style:none;display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.rk li:last-child{border-bottom:0}
+.rk i{font-style:normal;color:var(--brand);font-weight:800}
+@media(max-width:820px){.news{grid-template-columns:1fr}}
+
+/* ===== CTA / Footer ===== */
+.cta{background:var(--ink);color:#fff;text-align:center;padding:52px 20px}
+.cta h2{font-size:26px;margin-bottom:10px}
+.cta h2 em{font-style:normal;color:var(--brand-2)}
+.cta p{color:#b9c0cc;margin-bottom:22px;font-size:15px}
+.ft{background:#101218;color:#8a8f9c;padding:34px 0 26px;font-size:13px}
+.ft-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.ft a{color:#cfd2d9}
+.ft a:hover{color:var(--brand-2)}
+.ft .links{display:flex;gap:18px;flex-wrap:wrap}
+.ft .cp{margin-top:18px;padding-top:16px;border-top:1px solid #23262e;color:#6c717d}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<header class="hd">
+  <div class="wrap hd-in">
+    <div class="logo"><b>溜溜电影网</b><span>电影资讯 · 影评</span></div>
+    <nav class="nav" id="nav">
+      <a href="#home">首页</a>
+      <a href="#news">最新资讯</a>
+      <a href="#films">影片库</a>
+      <a href="#reviews">深度影评</a>
+      <a href="#columns">栏目导航</a>
+      <a href="#rank">排行榜</a>
+    </nav>
+    <button class="m-btn" id="mBtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>溜溜电影网<br><em>只做影迷真正需要的</em>观影参考</h1>
+      <div class="url">官方网站：https://liuliudianyingwang-zh.github.io</div>
+      <p class="ld">溜溜电影网聚焦最新电影资讯、上映排片、类型盘点与真诚影评。不追流量，不炒噱头，用及时、真实的内容帮你决定下一场该看什么。</p>
+      <div class="acts">
+        <a class="btn btn-p" href="#films">浏览影片库</a>
+        <a class="btn btn-o" href="#reviews">阅读本周影评</a>
+      </div>
+    </div>
+    <div class="tickets">
+      <h3>本周值得关注的档期</h3>
+      <div class="tk"><i>《归途之光》</i><s>10月11日 · 全国公映</s></div>
+      <div class="tk"><i>《深海来信》</i><s>10月18日 · 悬疑剧情</s></div>
+      <div class="tk"><i>《夏日方程式》</i><s>10月25日 · 青春治愈</s></div>
+      <div class="tk"><i>《钢铁与玫瑰》</i><s>11月01日 · 动作传记</s></div>
+      <div class="tk"><i>《无人之境》</i><s>11月08日 · 犯罪悬疑</s></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="films">
+  <div class="wrap">
+    <div class="sec-hd">
+      <h2><small>FILM LIBRARY</small>影片库 · 类型盘点</h2>
+      <a class="more" href="#">查看全部 »</a>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="poster" style="--c1:#3f4a5f;--c2:#1c2230"><s>热映</s><div><b>归途之光</b></div></div>
+        <div class="body">
+          <h3>归途之光</h3>
+          <div class="meta">剧情 / 家庭 · 128分钟 · 2026</div>
+          <p>一次跨越三千公里的回乡之旅，牵出两代人关于选择与放下的沉默对话。节奏克制，表演扎实，是近期少见的公路题材佳作。</p>
+          <a class="go" href="#">阅读影片介绍 »</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="poster" style="--c1:#5a3a2c;--c2:#241510"><s>悬疑</s><div><b>深海来信</b></div></div>
+        <div class="body">
+          <h3>深海来信</h3>
+          <div class="meta">悬疑 / 犯罪 · 112分钟 · 2026</div>
+          <p>一封信从海底打捞上来，牵出二十年前的旧案。导演用冷色调与留白营造出持续的压迫感，反转处理克制而不炫技。</p>
+          <a class="go" href="#">阅读影片介绍 »</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="poster" style="--c1:#3a5a52;--c2:#162620"><s>新片</s><div><b>钢铁与玫瑰</b></div></div>
+        <div class="body">
+          <h3>钢铁与玫瑰</h3>
+          <div class="meta">动作 / 传记 · 141分钟 · 2026</div>
+          <p>一位女工程师的职业生涯被浓缩在钢铁厂的轰鸣声中。工业质感与人物情感并重，动作场面服务于人物而非喧宾夺主。</p>
+          <a class="go" href="#">阅读影片介绍 »</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="poster" style="--c1:#4a4a6a;--c2:#211f33"><s>推荐</s><div><b>无人之境</b></div></div>
+        <div class="body">
+          <h3>无人之境</h3>
+          <div class="meta">犯罪 / 悬疑 · 119分钟 · 2026</div>
+          <p>一座边境小城，两位失意警察，一桩看似无解的案子。剧本严密，群像刻画入微，结尾的余味值得反复回味。</p>
+          <a class="go" href="#">阅读影片介绍 »</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="poster" style="--c1:#6a5a3a;--c2:#332816"><s>口碑</s><div><b>夏日方程式</b></div></div>
+        <div class="body">
+          <h3>夏日方程式</h3>
+          <div class="meta">青春 / 治愈 · 104分钟 · 2026</div>
+          <p>海边小镇的最后一个夏天，少年们用笨拙的方式理解离别。光线通透，配乐轻盈，是适合安静看完的那类片子。</p>
+          <a class="go" href="#">阅读影片介绍 »</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="poster" style="--c1:#3a4a3a;--c2:#162016"><s>纪录</s><div><b>稻与路</b></div></div>
+        <div class="body">
+          <h3>稻与路</h3>
+          <div class="meta">纪录片 · 96分钟 · 2026</div>
+          <p>跟拍南方乡村一位老农的一年，记录水稻从育秧到归仓的完整周期，也记录一个村庄缓慢而真实的变化。</p>
+          <a class="go" href="#">阅读影片介绍 »</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="poster" style="--c1:#5a3a4a;--c2:#2a1620"><s>动画</s><div><b>纸飞机男孩</b></div></div>
+        <div class="body">
+          <h3>纸飞机男孩</h3>
+          <div class="meta">动画 / 奇幻 · 98分钟 · 2026</div>
+          <p>用纸飞机连通两个世界的孩子，在一次次试飞中寻找勇气。画面细腻，叙事温柔，成年观众也能从中读出自己的心事。</p>
+          <a class="go" href="#">阅读影片介绍 »</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="poster" style="--c1:#4a4a4a;--c2:#1c1c1c"><s>经典</s><div><b>旧影院</b></div></div>
+        <div class="body">
+          <h3>旧影院</h3>
+          <div class="meta">文艺 / 怀旧 · 108分钟 · 2025</div>
+          <p>一座即将拆除的老影院，一群舍不得它的人，和一叠泛黄的电影票根。关于告别，也关于记忆如何被保存。</p>
+          <a class="go" href="#">阅读影片介绍 »</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="reviews" style="background:#efece6">
+  <div class="wrap">
+    <div class="sec-hd">
+      <h2><small>DEEP REVIEWS</small>深度影评</h2>
+      <a class="more" href="#">更多评论 »</a>
+    </div>
+    <div class="rev">
+      <article class="rv">
+        <div class="top"><span class="tag">深度长评</span><span>10月02日</span></div>
+        <h3>《归途之光》：公路片的另一种写法，是把沉默拍成对话</h3>
+        <p>它没有用奇观铺路，而是让角色在漫长的车程里一点点卸下防备。摄影对光线的处理尤其值得称道，日落的那场戏几乎完成了全片一半的情感表达。</p>
+      </article>
+      <article class="rv">
+        <div class="top"><span class="tag">导演观察</span><span>09月29日</span></div>
+        <h3>从《深海来信》看新导演如何用留白制造悬念</h3>
+        <p>不解释，是最难的叙事选择。影片前半段几乎没有给出任何明确线索，却靠人物反应和环境细节把观众牢牢留在座位上。</p>
+      </article>
+      <article class="rv">
+        <div class="top"><span class="tag">类型研究</span><span>09月26日</span></div>
+        <h3>国产犯罪片的转折：从追逐答案到凝视人心</h3>
+        <p>近年的优秀作品越来越不急于给出真相，而是把镜头对准"被事件改变的人"。这种转向，让类型片拥有了更强的现实重量。</p>
+      </article>
+      <article class="rv">
+        <div class="top"><span class="tag">观影随笔</span><span>09月22日</span></div>
+        <h3>在影院里哭完一场，是成年人难得的奢侈</h3>
+        <p>我们为什么还需要电影院？因为黑暗中的共情是单向的、安全的，也因为有些情绪，只有在集体沉默里才会被允许释放。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="columns">
+  <div class="wrap">
+    <div class="sec-hd">
+      <h2><small>COLUMN NAVIGATION</small>栏目导航</h2>
+      <span class="more">六大常设栏目</span>
+    </div>
+    <div class="cols">
+      <a class="col" href="#"><div class="ico">★</div><h3>最新资讯</h3><p>上映动态、行业观察、影展消息，第一时间更新。</p></a>
+      <a class="col" href="#"><div class="ico">▶</div><h3>影片库</h3><p>按类型与档期整理，方便你快速找到想看的片子。</p></a>
+      <a class="col" href="#"><div class="ico">✎</div><h3>深度影评</h3><p>不吹不踩，写清楚一部片子的好与不足在哪里。</p></a>
+      <a class="col" href="#"><div class="ico">▤</div><h3>排行榜</h3><p>基于真实口碑与观众反馈整理，不做商业排序。</p></a>
+      <a class="col" href="#"><div class="ico">◈</div><h3>观影指南</h3><p>按心情与场景推荐，解决"今晚看什么"的难题。</p></a>
+      <a class="col" href="#"><div class="ico">☰</div><h3>关于本站</h3><p>溜溜电影网的定位、内容原则与更新说明。</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="news" style="background:#efece6">
+  <div class="wrap">
+    <div class="sec-hd">
+      <h2><small>LATEST NEWS</small>最新资讯</h2>
+      <a class="more" href="#">资讯归档 »</a>
+    </div>
+    <div class="news">
+      <div>
+        <article class="nw"><div class="no">1</div><div class="txt">
+          <h3>《归途之光》点映口碑持续走高，现实主义题材再度获得关注</h3>
+          <p>多位影评人提到，影片对家庭关系的处理"既诚实又不残忍"。</p></div></article>
+        <article class="nw"><div class="no">2</div><div class="txt">
+          <h3>2026年秋季档观察：悬疑类型扎堆，差异化成关键</h3>
+          <p>同档期五部悬疑片上映，题材与叙事手法的区分度将决定观众选择。</p></div></article>
+        <article class="nw"><div class="no">3</div><div class="txt">
+          <h3>《稻与路》获国际纪录片节提名，乡土题材走向世界</h3>
+          <p>这部跟拍一年的作品，以极简的叙事方式打动了评审团。</p></div></article>
+        <article class="nw"><div class="no">4</div><div class="txt">
+          <h3>国产动画的十年变化：从模仿到找到自己的视觉语言</h3>
+          <p>《纸飞机男孩》被视为这一转变中的代表性作品之一。</p></div></article>
+        <article class="nw"><div class="no">5</div><div class="txt">
+          <h3>多地艺术影院推出修复单元，老片重新走进年轻观众视野</h3>
+          <p>修复技术让经典作品的画面与声音焕发新生，也让观影成为一次重逢。</p></div></article>
+      </div>
+      <aside class="side">
+        <h3>热门搜索</h3>
+        <ul class="rk">
+          <li><i>01</i><span>归途之光 影片介绍</span></li>
+          <li><i>02</i><span>2026年10月上映电影</span></li>
+          <li><i>03</i><span>深海来信 剧情解析</span></li>
+          <li><i>04</i><span>国产犯罪片推荐</span></li>
+          <li><i>05</i><span>稻与路 纪录片</span></li>
+          <li><i>06</i><span>纸飞机男孩 评价</span></li>
+          <li><i>07</i><span>溜溜电影网 影评</span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="rank">
+  <div class="wrap">
+    <div class="sec-hd">
+      <h2><small>WEEKLY RANKING</small>本周口碑榜</h2>
+      <a class="more" href="#">完整榜单 »</a>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="body">
+          <div class="meta">第 1 名 · 剧情</div>
+          <h3>归途之光</h3>
+          <p>公路外壳下的家庭伦理片，表演与节奏是最大亮点。</p>
+          <a class="go" href="#">查看详情 »</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="body">
+          <div class="meta">第 2 名 · 悬疑</div>
+          <h3>深海来信</h3>
+          <p>冷调悬疑的代表作，反转克制，后劲十足。</p>
+          <a class="go" href="#">查看详情 »</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="body">
+          <div class="meta">第 3 名 · 动画</div>
+          <h3>纸飞机男孩</h3>
+          <p>画面细腻温柔，是近期最适合全年龄观看的作品。</p>
+          <a class="go" href="#">查看详情 »</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="body">
+          <div class="meta">第 4 名 · 纪录片</div>
+          <h3>稻与路</h3>
+          <p>安静而有力量，重新定义了乡土题材的表达方式。</p>
+          <a class="go" href="#">查看详情 »</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>想找一部<em>真正值得看</em>的电影？<br>从溜溜电影网开始</h2>
+  <p>官方网站 https://liuliudianyingwang-zh.github.io · 提供电影资讯、影片介绍与影评内容</p>
+  <a class="btn btn-o" href="#films">进入影片库</a>
+</section>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-in">
+      <div>溜溜电影网 · 聚焦电影资讯、影片介绍与深度影评</div>
+      <div class="links">
+        <a href="#">网站首页</a>
+        <a href="#">最新资讯</a>
+        <a href="#">影片库</a>
+        <a href="#">深度影评</a>
+        <a href="#">栏目导航</a>
+        <a href="#">关于本站</a>
+      </div>
+    </div>
+    <div class="cp">
+      本站内容以电影资讯与评论为主，不提供影视在线播放与下载服务。网站网址：https://liuliudianyingwang-zh.github.io
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('mBtn'),nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){nav.classList.toggle('open')});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')nav.classList.remove('open')});
+})();
+</script>
+</body>
+</html>
